@@ -94,4 +94,4 @@ Our Hello World is now far more inclusive, but what about multilingual programme
 
 In addition to concatenation, regular expressions support or operators - Text("a") | Text("b") matches both the strings "a" and "b".
 
-  >>> hello_worlds = hello_world + (Text(" ").many(1) + hello_world).many()
+    >>> hello_worlds = hello_world + (Text(" ").many(1) + hello_world).many()
