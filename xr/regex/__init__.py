@@ -1,1 +1,1 @@
-from rfc5322 import RFC5322
+from xr.regex.rfc5322 import RFC5322

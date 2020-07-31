@@ -1,10 +1,6 @@
 import os.path
-import pathlib
 from setuptools import setup
 from unittest import TestLoader
-
-HERE = pathlib.Path(__file__).parent
-README = (HERE / "README.md").read_text()
 
 def tests():
     return TestLoader().discover('test', pattern='test_*.py')
@@ -12,10 +8,13 @@ def tests():
 
 setup(
     name='xr',
-    version='1.0.0',
+    version='1.0.4',
     description="Easy Regular expression builder for people.",
+    long_description = os.path.join(os.path.dirname(__file__), 'README.md'),
+    long_description_content_type="text/markdown",
     url="https://xr.deprince.io",
     author="Adam DePrince",
+    author_email="adamdeprince@gmail.com",
     license="Apache",
     classifiers = [
         "Development Status :: 3 - Alpha",
@@ -30,7 +29,7 @@ setup(
         'xr/',
         'xr/regex/'
     ],
-    requires=[
+    install_requires=[
         "six"
     ],
     test_suite='setup.tests',

@@ -1,7 +1,7 @@
 from xr.test.case import EasyRECase
 from unittest import TestCase
 
-from easyre import (
+from xr import (
     CharacterSet,
     NegativeCharacterSet,
     Text,

@@ -1,4 +1,4 @@
-from easyre import CharacterSet, CharacterRange, Text, NumericRange
+from xr import CharacterSet, CharacterRange, Text, NumericRange
 from string import ascii_lowercase, digits
 
 AlphaNum = CharacterSet(ascii_lowercase + digits)

@@ -1,5 +1,6 @@
 from functools import total_ordering, reduce
 import re
+import string
 
 import six
 
@@ -86,6 +87,9 @@ class RE(object):
 
     def exact_match(self, s):
         return self.exactly_matches(s)
+
+    def split(self, string, *args, **kwargs):
+        return re.split(self.compile(), string, *args, **kwargs)
 
     def __mul__(self, other):
         if not isinstance(other, int) or other < 0:
@@ -435,3 +439,4 @@ class _Anything(RE):
 
 
 Anything = _Anything()
+WhiteSpace = CharacterSet(string.whitespace)
