@@ -14,7 +14,8 @@ Xr supports modern programming practices
 * Optimization
 * Composability
 * Unittesting support
-* Xr is tested against Python 2.7 & 3.4-3.8 and PyPy
+
+Xr is tested against Python 2.7 & 3.4-3.8 and PyPy
 
 ## Getting started
 
