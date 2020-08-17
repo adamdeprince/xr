@@ -8,9 +8,9 @@ def tests():
 
 setup(
     name='xr',
-    version='1.0.4',
+    version='1.0.5',
     description="Easy Regular expression builder for people.",
-    long_description = os.path.join(os.path.dirname(__file__), 'README.md'),
+    long_description = open(os.path.join(os.path.dirname(__file__), 'README.md')).read(),
     long_description_content_type="text/markdown",
     url="https://xr.deprince.io",
     author="Adam DePrince",

@@ -2,6 +2,7 @@ import itertools
 import operator
 from functools import reduce
 
+
 def all_combinations(seq):
     seq = list(seq)
 
@@ -12,33 +13,48 @@ def all_combinations(seq):
 
 class EasyRECase(object):
     NEGATIVE = False
+
     def matches(self, re, candidate):
-        self.assertTrue(re.matches(candidate), msg="%s does not match %s" % (re, candidate))
-        self.assertTrue(re.optimize().matches(candidate), msg="%s does not match %s" % (re, candidate))
+        self.assertTrue(re.matches(candidate),
+                        msg="%s does not match %s" % (re, candidate))
+        self.assertTrue(re.optimize().matches(candidate),
+                        msg="%s does not match %s" % (re, candidate))
 
     def doesnt_match(self, re, candidate):
-        self.assertFalse(re.matches(candidate), msg="%s matches %s" % (re, candidate))
-        self.assertFalse(re.optimize().matches(candidate), msg="%s matches %s" % (re, candidate))
+        self.assertFalse(re.matches(candidate),
+                         msg="%s matches %s" % (re, candidate))
+        self.assertFalse(re.optimize().matches(candidate),
+                         msg="%s matches %s" % (re, candidate))
 
     def searchs(self, re, candidate):
-        self.assertTrue(re.search(candidate), msg="\%s does not search %s" % (re, candidate))
-        self.assertTrue(re.optimize().search(candidate), msg="\%s does not search %s" % (re, candidate))
+        self.assertTrue(re.search(candidate),
+                        msg="\%s does not search %s" % (re, candidate))
+        self.assertTrue(re.optimize().search(candidate),
+                        msg="\%s does not search %s" % (re, candidate))
 
     def doesnt_search(self, re, candidate):
-        self.assertFalse(re.matches(candidate), msg="%s searches %s" % (re, candidate))
-        self.assertFalse(re.optimize().matches(candidate), msg="%s searches %s" % (re, candidate))
+        self.assertFalse(re.matches(candidate),
+                         msg="%s searches %s" % (re, candidate))
+        self.assertFalse(re.optimize().matches(candidate),
+                         msg="%s searches %s" % (re, candidate))
 
     def exactly_matches(self, re, candidate):
-        self.assertTrue(re.matches(candidate), msg="%s does not match %s" % (re, candidate))
-        self.assertTrue(re.optimize().matches(candidate), msg="%s does not match %s" % (re, candidate))
+        self.assertTrue(re.matches(candidate),
+                        msg="%s does not match %s" % (re, candidate))
+        self.assertTrue(re.optimize().matches(candidate),
+                        msg="%s does not match %s" % (re, candidate))
 
     def doesnt_exactly_match(self, re, candidate):
-        self.assertFalse(re.exact_match(candidate), msg="%s matches %s" % (re, candidate))
-        self.assertFalse(re.optimize().exact_match(candidate), msg="%s matches %s" % (re, candidate))
+        self.assertFalse(re.exact_match(candidate),
+                         msg="%s matches %s" % (re, candidate))
+        self.assertFalse(re.optimize().exact_match(candidate),
+                         msg="%s matches %s" % (re, candidate))
 
     def doesnt_match_exactly(self, re, candidate):
-        self.assertFalse(re.exa(candidate), msg="%s matches %s" % (re, candidate))
-        self.assertFalse(re.optimize().exa(candidate), msg="%s matches %s" % (re, candidate))
+        self.assertFalse(re.exa(candidate), msg="%s matches %s" %
+                         (re, candidate))
+        self.assertFalse(re.optimize().exa(candidate),
+                         msg="%s matches %s" % (re, candidate))
 
     def test_or(self):
         all_matches = set()
@@ -113,5 +129,7 @@ class EasyRECase(object):
             for candidate in candidates:
                 for count in [1, 2, 3, 4, 5, 6, 10, 100]:
                     self.exactly_matches(re * count, candidate * count)
-                    self.doesnt_exactly_match(re * count, candidate * (count + 1))
-                    self.doesnt_exactly_match(re * count, candidate * (count - 1))
+                    self.doesnt_exactly_match(
+                        re * count, candidate * (count + 1))
+                    self.doesnt_exactly_match(
+                        re * count, candidate * (count - 1))

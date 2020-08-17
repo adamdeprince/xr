@@ -10,11 +10,11 @@ from xr import (
     CharacterRange,
     NegativeCharacterRange,
     Anything,
-    )
+)
+
 
 class TestPeriod(EasyRECase, TestCase):
-   AUTO_TEST_RES = [Text('.')]
+    AUTO_TEST_RES = [Text('.')]
 
-   AUTO_TEST_MATCHES = [['.']]
-   AUTO_TEST_NOMATCH = [['x']]
-
+    AUTO_TEST_MATCHES = [['.']]
+    AUTO_TEST_NOMATCH = [['x']]

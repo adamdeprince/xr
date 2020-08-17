@@ -1,6 +1,7 @@
 from xr.regex.rfc5322 import FQDN, RFC5322, Name
 from unittest import TestCase
 
+
 class TestRFC5322(TestCase):
     def test_fqdn(self):
         self.assertTrue(FQDN.match_exact('easyre.io'))
@@ -18,4 +19,3 @@ class TestRFC5322(TestCase):
         self.assertFalse(RFC5322.match_exact('adamdeprince@@example.com'))
         self.assertTrue(RFC5322.match_exact('adam.deprince@example.com'))
         self.assertFalse(RFC5322.match_exact('adam..deprince@example.com'))
-        
