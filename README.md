@@ -35,9 +35,9 @@ All good introductions to a programming language start with "Hello World." Xr is
     >>> hello_world.match_exact('Goodbye World')
     (None)
 
-Notice we return a re.Pattern object when we match, and None if we don't. This matches the behaivor of Python's built in re library. Xr composes regular expression source strings for you and feeds these to the re library where all of the heavy lifting of the actual regular expression matching takes place.
+Notice we return a re.Pattern object when we match, and None if we don't. This matches the behavior of Python's built in re library. Xr composes regular expression source strings for you and feeds these to the re library where all of the heavy lifting of the actual regular expression matching takes place.
 
-Our Hello World program is pretty good, but it doesn't cover all of the important Hello World use cases: Some programmers become a enthuisastic about learning how to use a new library and show this ethusiasticaly with an exclamation point. We of course want to accomodate enthusiasm so we should allow for an optional exclamation point at the end of the regular expression
+Our Hello World program is pretty good, but it doesn't cover all of the important Hello World use cases: Some programmers become enthusiastic about learning how to use a new library and show this enthusiasticaly with an exclamation point. We of course want to accomodate enthusiasm so we should allow for an optional exclamation point at the end of the regular expression
 
     >>> hello.world.match_exact('Hello World!')
     (None)
@@ -57,15 +57,15 @@ Xr supports operator overloading, letting us make our example a little bit simpi
 
     >>> hello_world = "Hello World" + Text('!').many()
 
-So far we've accommodated enthusiastic programmers, but only English speaking enthusiastic programmers. The majority of the world's population does not speak English natively. Far more people are thinking "Nǐ hǎo shìjiè" than they do "Hello World" when become excited about learning how to use a new library.
+So far we've accommodated enthusiastic programmers, but only English speaking enthusiastic programmers. The majority of the world's population does not speak English natively. Far more people are thinking "Nǐ hǎo shìjiè" than they do "Hello World" when becoming excited about learning how to use a new library.
 
-Before we can accomodate a new lanugae, we should refactor our code a little bit. One of the powerful features of the xr library is that you build your regular expressions in plain python. This makes available all of the features and convienences of writing in a programming language, like variable names for subcomponents.
+Before we can accomodate a new language, we should refactor our code a little bit. One of the powerful features of the xr library is that you build your regular expressions in plain python. This makes available all of the features and conveniences of writing in a programming language, like variable names for subcomponents.
 
     >>> verbiage = "Hello World"
     >>> punctuation = "!".many()
     >>> hello_world = verbiage + punctuation
 
-Now that this code is refactored we can modify our program to recognize Chinesse. When reading this code keep in mind that for operators to work between xr expressions at least one side of the operator must be a xr.RE subclass. We have to write something like `Text('a') | 'b' | 'c' | 'd'` or `'a' | 'b' | Text('c') | 'd'`. We cannot write this: `'a' | 'b' | 'c' | 'd'` .
+Now that this code is refactored we can modify our program to recognize Chinese. When reading this code keep in mind that for operators to work between xr expressions at least one side of the operator must be a xr.RE subclass. We have to write something like `Text('a') | 'b' | 'c' | 'd'` or `'a' | 'b' | Text('c') | 'd'`. We cannot write this: `'a' | 'b' | 'c' | 'd'` .
 
     >>> verbiage = Text("Hello World") | "你好世界"
 
@@ -73,7 +73,7 @@ While we are at this, lets add a few more languages. Most of the world's potenti
 
     >>> verbiage = Text("Hello World") | "你好世界" | "Hola Mundo" | "Привет мир";
 
-When creating regular expresions it can be easy to forget that youre actually describing your regular expressions ina n abstract syntax tree in the python language. Remember that xr expressions are composiable - you can build your tree programatically.
+When creating regular expressions it can be easy to forget that you are actually describing your regular expressions in an abstract syntax tree in the python language. Remember that xr expressions are composable - you can build your tree programatically.
 
     >>> from functools import reduce # For python 3 users 
     >>> verbiage = ["Hello World",
@@ -93,6 +93,6 @@ When creating regular expresions it can be easy to forget that youre actually de
 
 Our Hello World is now far more inclusive, but what about multilingual programmers? Lets modify our Hello World program to accept multiple utterances of Hello World in any language.
 
-In addition to concatenation, regular expressions support or operators - Text("a") | Text("b") matches both the strings "a" and "b".
+In addition to concatenation, regular expressions support "or" operators - Text("a") | Text("b") matches both the strings "a" and "b".
 
     >>> hello_worlds = hello_world + (Text(" ").many(1) + hello_world).many()
