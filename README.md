@@ -1,6 +1,6 @@
 # XR: Regular expressions for people not just machines
 
-xr: Regular expressions for people.  [Full reference manual on website.](https://xr.deprince.io)
+xr: Regular expressions for people.
 
 Release v1.0
 
